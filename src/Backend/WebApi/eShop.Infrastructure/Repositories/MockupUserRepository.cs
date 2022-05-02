@@ -1,19 +1,27 @@
-﻿using eShop.Core.Interfaces.Repositories;
+﻿using AutoMapper;
+using eShop.Core.Interfaces.Repositories;
 using eShop.Core.Models;
+using eShop.Infrastructure.Entities;
 using eShop.SharedKernel.Repositories;
 using System.Collections.Generic;
 
 namespace eShop.Infrastructure.Repositories
 {
-    public class MockupUserRepository : BaseRepository<User>, IUserRepository
+    public class MockupUserRepository : BaseRepository<UserModel>, IUserRepository
     {
-        public override List<User> GetListEntities()
+        private readonly IMapper _mapper;
+        public MockupUserRepository(IMapper mapper)
         {
-            List<User> items = new List<User>
+            _mapper = mapper;
+        }
+
+        public override List<UserModel> GetListEntities()
+        {
+            List<UserModel> items = new List<UserModel>
             {
-                new User { Id = 1, Username = "juan", Password = "123456"}
+                new UserModel { Id = 1, Username = "juan", Password = "123456"}
             };
-            return items;
+            return _mapper.Map<List<UserModel>>(items);
         }
     }
 }

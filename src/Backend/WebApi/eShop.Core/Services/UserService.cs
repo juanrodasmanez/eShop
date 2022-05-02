@@ -5,7 +5,7 @@ using eShop.SharedKernel.Services;
 
 namespace eShop.Core.Services
 {
-    public class UserService : BaseService<User>, IUserService
+    public class UserService : BaseService<UserModel>, IUserService
     {
         private readonly IUserRepository _repository;
 

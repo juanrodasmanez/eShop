@@ -14,14 +14,13 @@
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.16" />
   </ItemGroup>
-
-	<ItemGroup>
-		<Folder Include="Entities\" />
-		<Folder Include="Mapper\" />
-	</ItemGroup>
 	
   <ItemGroup>
     <ProjectReference Include="..\eShop.Core\eShop.Core.csproj" />
+  </ItemGroup>
+	
+  <ItemGroup>
+    <Folder Include="Profiles\" />
   </ItemGroup>
 
 </Project>

@@ -19,9 +19,9 @@ namespace eShop.Api.V1.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<User>> GetListEntities()
+        public ActionResult<List<UserModel>> GetListEntities()
         {
-            List<User> users = _userService.GetListEntities();
+            List<UserModel> users = _userService.GetListEntities();
             return users;
         }
 

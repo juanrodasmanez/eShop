@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace eShop.Core.Interfaces.Services
 {
-    public interface IUserService : IBaseService<User>
+    public interface IUserService : IBaseService<UserModel>
     {
     }
 }
