@@ -6,18 +6,18 @@
 
   <ItemGroup>
     <Folder Include="Constants\" />
-    <Folder Include="Interfaces\Services\" />
-    <Folder Include="Interfaces\Repositories\" />
-    <Folder Include="Models\" />
     <Folder Include="Enums\" />
     <Folder Include="Helper\" />
-    <Folder Include="Services\" />
     <Folder Include="Response\" />
     <Folder Include="Request\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\eShop.SharedKernel\eShop.SharedKernel.csproj" />
   </ItemGroup>
 
 </Project>

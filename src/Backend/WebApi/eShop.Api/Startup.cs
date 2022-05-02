@@ -1,3 +1,7 @@
+using eShop.Core.Interfaces.Repositories;
+using eShop.Core.Interfaces.Services;
+using eShop.Core.Services;
+using eShop.Infrastructure.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +36,9 @@ namespace eShop.Api
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "eShop.Api", Version = "v1" });
             });
+
+            services.AddScoped<IUserRepository, MockupUserRepository>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
