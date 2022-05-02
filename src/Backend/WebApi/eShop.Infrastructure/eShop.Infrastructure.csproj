@@ -4,6 +4,14 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+    <ItemGroup>
+	    <Folder Include="Context\" />
+	    <Folder Include="Entities\" />
+	    <Folder Include="Mapper\" />
+	    <Folder Include="Profiles\" />
+	    <Folder Include="Repositories\" />
+    </ItemGroup>
+	
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
@@ -19,8 +27,4 @@
     <ProjectReference Include="..\eShop.Core\eShop.Core.csproj" />
   </ItemGroup>
 	
-  <ItemGroup>
-    <Folder Include="Profiles\" />
-  </ItemGroup>
-
 </Project>
