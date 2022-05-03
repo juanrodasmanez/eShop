@@ -15,7 +15,6 @@
     <Folder Include="Filter\" />
     <Folder Include="Middleware\" />
     <Folder Include="Helper\" />
-    <Folder Include="V1\" />
   </ItemGroup>
 
 </Project>
