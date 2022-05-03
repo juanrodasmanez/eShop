@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace eShop.SharedKernel.Interfaces
 {
-    public interface IBaseService
+    public interface IBaseService<TEntity> where TEntity : class
     {
+        int Create(TEntity entity);
+
+        TEntity ReadById(int id);
+
+        bool Update(int id, TEntity entity);
+
+        bool Delete(int id);
+
+        List<TEntity> GetList();
+
+        List<TEntity> GetListInPaginate();
     }
 }
