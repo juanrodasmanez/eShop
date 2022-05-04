@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eShop.SharedKernel.Models
+namespace eShop.Core.Entities
 {
-    public class BaseModel
+    public class BaseEntity
     {
         [Key]
         public int Id { get; set; }

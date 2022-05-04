@@ -5,36 +5,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eShop.SharedKernel.Repositories
+namespace eShop.SharedKernel.Services
 {
-    public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
+    public abstract class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
     {
-        public int Create(TEntity entity)
+        public virtual int Create(TEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
+        public virtual bool Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public List<TEntity> GetList()
+        public virtual IEnumerable<TEntity> GetList()
         {
             throw new NotImplementedException();
         }
 
-        public List<TEntity> GetListInPaginate()
+        public virtual IEnumerable<TEntity> GetListInPaginate()
         {
             throw new NotImplementedException();
         }
 
-        public TEntity ReadById(int id)
+        public virtual TEntity ReadById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update(int id, TEntity entity)
+        public virtual bool Update(int id, TEntity entity)
         {
             throw new NotImplementedException();
         }

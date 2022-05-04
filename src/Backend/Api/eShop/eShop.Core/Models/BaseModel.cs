@@ -5,10 +5,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eShop.SharedKernel.Entities
+namespace eShop.Core.Models
 {
-    public class BaseEntity
-    {   
+    public class BaseModel
+    {
         [Key]
         public int Id { get; set; }
         public DateTime CreatedAt { get; set; }
