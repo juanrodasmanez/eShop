@@ -38,26 +38,20 @@ namespace eShop.Api
         {
             // DbContexts
             services.AddDbContexts(Configuration);
-            //services.AddDbContext<AppShopDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
+            // Swagger
+            services.AddSwagger($"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
+
+            // Automapper Dtos
+            services.AddAutoMapper();
+
+            // Injection Dependency
             services.AddServices();
 
             services.AddControllers().AddNewtonsoftJson(s => {
                 s.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             });
 
-            services.AddSwagger($"{Assembly.GetExecutingAssembly().GetName().Name}.xml");
-
-            //services.AddSwaggerGen(c =>
-            //{
-            //    c.SwaggerDoc("v1", new OpenApiInfo { Title = "eShop.Api", Version = "v1" });
-            //});
-
-            // Injection Dependency
-
-
-            // Automapper para DTO
-            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
