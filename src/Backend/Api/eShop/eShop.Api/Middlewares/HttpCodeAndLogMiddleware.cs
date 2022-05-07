@@ -49,17 +49,17 @@ namespace eShop.Api.Middlewares
                         await WriteAndLogResponseAync(exception, httpContext, HttpStatusCode.BadRequest, LogLevel.Error, "BadRequest Exception!" + e.Message);
                         break;
 
-                    //case NotFoundException e:
+                    case NotFoundException e:
 
-                    //    httpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
-                    //    await WriteAndLogResponseAync(exception, httpContext, HttpStatusCode.NotFound, LogLevel.Error, "Not Found!" + e.Message);
-                    //    break;
+                        httpContext.Response.StatusCode = (int)HttpStatusCode.NotFound;
+                        await WriteAndLogResponseAync(exception, httpContext, HttpStatusCode.NotFound, LogLevel.Error, "Not Found!" + e.Message);
+                        break;
 
-                    //case ValidationException e:
+                    case ValidationException e:
 
-                    //    httpContext.Response.StatusCode = (int)HttpStatusCode.UnprocessableEntity;
-                    //    await WriteAndLogResponseAync(exception, httpContext, HttpStatusCode.InternalServerError, LogLevel.Error, "Validation Exception!" + e.Message);
-                    //    break;
+                        httpContext.Response.StatusCode = (int)HttpStatusCode.UnprocessableEntity;
+                        await WriteAndLogResponseAync(exception, httpContext, HttpStatusCode.InternalServerError, LogLevel.Error, "Validation Exception!" + e.Message);
+                        break;
 
                     //case AuthenticationException e:
 
@@ -69,18 +69,15 @@ namespace eShop.Api.Middlewares
 
                     default:
                         //httpContext.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
-                        await WriteAndLogResponseAync(exception, httpContext, HttpStatusCode.InternalServerError, LogLevel.Error, "Not Found!" + e.Message);
+                        await WriteAndLogResponseAync(exception, httpContext, HttpStatusCode.InternalServerError, LogLevel.Error, "Server Error!");
                         break;
     
                 }
 
-                //throw;
             }
 
-            //return await _next(httpContext);
         }
 
-        // WriteAndLogResponseAsync
         private async Task WriteAndLogResponseAync(
             Exception exception,
             HttpContext httpContext,
@@ -114,7 +111,7 @@ namespace eShop.Api.Middlewares
                 .AppendFormat("\n  Referer        :").Append(httpContext.Request.Headers["Referer"].ToString())
                 .AppendFormat("\n  Origin         :").Append(httpContext.Request.Headers["Origin"].ToString())
                 .AppendFormat("\n  User-Agent     :").Append(httpContext.Request.Headers["User-Agent"].ToString())
-                .AppendFormat("\n  Error Message  :").Append(exception.Message);
+                .AppendFormat("\n  Error Message  :").Append(exception.Message + exception.StackTrace);
 
             _logger.Log(logLevel, exception, customDetails.ToString());
 

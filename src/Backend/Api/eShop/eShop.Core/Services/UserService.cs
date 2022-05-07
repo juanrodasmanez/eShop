@@ -22,6 +22,7 @@ namespace eShop.Core.Services
 
         public override IEnumerable<UserModel> GetList()
         {
+            //throw new ArgumentNullException();
             return _unitOfWork.UserRepository.GetList();
         }
     }

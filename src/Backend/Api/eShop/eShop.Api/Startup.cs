@@ -1,3 +1,4 @@
+using eShop.Api.Middlewares;
 using eShop.Core.Interfaces.Repositories;
 using eShop.Core.Interfaces.Services;
 using eShop.Core.Services;
@@ -59,9 +60,15 @@ namespace eShop.Api
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
+                app.UseHttpCodeAndLogMiddleware();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "eShop.Api v1"));
+
+            } else
+            {
+                app.UseHttpCodeAndLogMiddleware();
+                app.UseHsts();
             }
 
             app.UseHttpsRedirection();
