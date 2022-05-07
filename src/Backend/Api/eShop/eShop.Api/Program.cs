@@ -20,10 +20,6 @@ namespace eShop.Api
                 .SetBasePath(System.IO.Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
 
-           // var config = new ConfigurationBuilder()
-           //.SetBasePath(System.IO.Directory.GetCurrentDirectory())
-           //.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
-
             IConfigurationRoot config = configBuilder.Build();
             LogManager.Configuration = new NLogLoggingConfiguration(config.GetSection("NLog"));
             Logger logger = LogManager.GetCurrentClassLogger();
