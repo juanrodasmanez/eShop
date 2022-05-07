@@ -60,10 +60,8 @@ namespace eShop.Api
         {
             if (env.IsDevelopment())
             {
-                //app.UseDeveloperExceptionPage();
                 app.UseHttpCodeAndLogMiddleware();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "eShop.Api v1"));
+                app.ConfigureSwagger();
 
             } else
             {
